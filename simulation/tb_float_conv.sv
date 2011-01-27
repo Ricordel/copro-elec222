@@ -40,10 +40,6 @@ initial begin
 ofmul = $fopen("conv.dat");
 for (i=0;i<$size(A.`MANT)+1;i++) 
   tb_poids[i] = 0 ;
-max_pos_val = float2real(max_pos_float_val) ;
-max_neg_val = float2real(max_neg_float_val) ;
-min_pos_val = float2real(min_pos_float_val) ;
-min_neg_val = float2real(min_neg_float_val) ;
 $fdisplay(ofmul,"===Test Conversions===");
 	for(i=0;i<Ntest;i++)begin
 	#10
@@ -52,10 +48,10 @@ $fdisplay(ofmul,"===Test Conversions===");
 		A.`MANT=$random() ;
 		if(A.`EXP == 0) A.`MANT = 0 ;
 		if(A.`EXP == ((2**$size(A.`EXP))-1)) A.`EXP = (2**$size(A.`EXP))-2 ;
-	        if(i==1)  A =  max_pos_val ;
-	        if(i==2)  A =  max_neg_val ;
-	        if(i==3)  A =  min_pos_val ;
-	        if(i==4)  A =  min_neg_val ;
+	        if(i==1)  A =  max_pos_float_val ;
+	        if(i==2)  A =  max_neg_float_val ;
+	        if(i==3)  A =  min_pos_float_val ;
+	        if(i==4)  A =  min_neg_float_val ;
 	        if(i==5)  A =  pos_zero_val ;
 	        if(i==6)  A =  neg_zero_val ;
 		rA=float2real(A);
